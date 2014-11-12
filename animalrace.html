@@ -15,9 +15,9 @@ body {
 .progress-bar {
     background-color: #444;
     height: 10px;
-    padding: 5px;
+    padding: 2px;
     width: 350px;
-    margin: 5px 0;         
+    margin: 1px 0;         
   }
 
 .progress-bar span {
@@ -78,15 +78,15 @@ while (hare.position < km && tortoise.position < km && rhino.position < km && bi
 	bird.run();
 	i++;
 
-	document.write("<p><strong>Step " + i + "</strong>: " + hare.name + ": " + hare.position + ", " + tortoise.name + ": " + tortoise.position + ", " + rhino.name + ": " + rhino.position + ", " + bird.name + ": " + bird.position + "</p> " + "<div class=\"progress-bar " + hare.name + "\"><span style=\"width:" + (hare.position * 5) +  "%\"></span></div>" + "<div class=\"progress-bar " + tortoise.name + "\"><span style=\"width:" + (tortoise.position * 5) +  "%\"></span></div>");
+	document.write("<p><strong>Step " + i + "</strong>: " + hare.name + ": " + hare.position + ", " + tortoise.name + ": " + tortoise.position + ", " + rhino.name + ": " + rhino.position + ", " + bird.name + ": " + bird.position + "</p> " + "<div class=\"progress-bar " + hare.name + "\"><span style=\"width:" + (hare.position * 5) +  "%\"></span></div>" + "<div class=\"progress-bar " + tortoise.name + "\"><span style=\"width:" + (tortoise.position * 5) +  "%\"></span></div>" + "<div class=\"progress-bar " + rhino.name + "\"><span style=\"width:" + (rhino.position * 5) +  "%\"></span></div>" + "<div class=\"progress-bar " + bird.name + "\"><span style=\"width:" + (bird.position * 5) +  "%\"></span></div>");
 
-	 if ((hare.position == km) || (tortoise.position == km)) {
+	 if ((hare.position >= km) || (tortoise.position >= km) || (rhino.position >= km) || (bird.position >= km)) {
 	 		var message;
-	 		if (hare.position == km) {
+	 		if (hare.position >= km) {
 	 			message = hare.name;
-	 		} else if (tortoise.position == km) {
+	 		} else if (tortoise.position >= km) {
 	 			message = tortoise.name;
-	 		} else if (rhino.position == km) {
+	 		} else if (rhino.position >= km) {
 	 			message = rhino.name;
 	 		} else {
 	 			message = bird.name;
