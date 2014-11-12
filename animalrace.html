@@ -82,10 +82,22 @@ while (hare.position < km && tortoise.position < km && rhino.position < km && bi
 
 	 if ((hare.position >= km) || (tortoise.position >= km) || (rhino.position >= km) || (bird.position >= km)) {
 	 		var message;
-	 		if (hare.position >= km) {
+	 		if (hare.position >= km && tortoise.position >= km) {
+	 			message = hare.name + " and " + tortoise.name;
+	 		} else if (hare.position >= km && rhino.position >= km) {
+	 			message = hare.name + " and " + rhino.name;
+	 		} else if (hare.position >= km && bird.position >= km) {
+	 			message = hare.name + " and " + bird.name;
+	 		} else if (hare.position >= km) {
 	 			message = hare.name;
+	 		} else if (tortoise.position >= km && rhino.position >= km) {
+	 			message = tortoise.name + " and " + rhino.name;
+	 		} else if (tortoise.position >= km && bird.position >= km) {
+	 			message = tortoise.name + " and " + bird.name;
 	 		} else if (tortoise.position >= km) {
 	 			message = tortoise.name;
+	 		} else if (rhino.position >= km && bird.position >= km) {
+	 			message = rhino.name + " and " + bird.name;
 	 		} else if (rhino.position >= km) {
 	 			message = rhino.name;
 	 		} else {
@@ -93,7 +105,7 @@ while (hare.position < km && tortoise.position < km && rhino.position < km && bi
 	 		} 
 
 
-	 	document.write("<p style=\"padding:4px;background:" + message+ "\" id=\"race\">race is over and " + message + " wins!</p>")
+	 	document.write("<p style=\"padding:4px;background:" + message+ "\" id=\"race\">The race is over and it is " + message + " for the win!</p>")
 	 }
 
 }
