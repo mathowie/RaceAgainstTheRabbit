@@ -34,11 +34,20 @@ body {
       background-color:PaleGreen;
 }
 
+.LightSkyBlue span {
+      background-color:LightSkyBlue;	
+}
+
+.Gold span {
+      background-color:Gold;	
+}
+
+
 </style>
 
 <script type="text/javascript">
 
-var tortoise, hare, km;
+var tortoise, hare, rhino, bird, km;
 
 function Animal(name, speed, focus) {
 	this.name = name;
@@ -56,24 +65,32 @@ function Animal(name, speed, focus) {
 // name, speed, focus
 tortoise = new Animal("PaleGreen", 1, 10);
 hare = new Animal("Pink", 4, 2);
+rhino = new Animal("LightSkyBlue", 2, 6);
+bird = new Animal("Gold", 8, 1);
 
 km = 20;
 i = 0;
 
-while (hare.position < km && tortoise.position < km) {
+while (hare.position < km && tortoise.position < km && rhino.position < km && bird.position < km) {
 	hare.run();
 	tortoise.run();
+	rhino.run();
+	bird.run();
 	i++;
 
-	document.write("<p><strong>Step " + i + "</strong>: " + hare.name + ": " + hare.position + ", " + tortoise.name + ": " + tortoise.position + "</p> " + "<div class=\"progress-bar " + hare.name + "\"><span style=\"width:" + (hare.position * 5) +  "%\"></span></div>" + "<div class=\"progress-bar " + tortoise.name + "\"><span style=\"width:" + (tortoise.position * 5) +  "%\"></span></div>");
+	document.write("<p><strong>Step " + i + "</strong>: " + hare.name + ": " + hare.position + ", " + tortoise.name + ": " + tortoise.position + ", " + rhino.name + ": " + rhino.position + ", " + bird.name + ": " + bird.position + "</p> " + "<div class=\"progress-bar " + hare.name + "\"><span style=\"width:" + (hare.position * 5) +  "%\"></span></div>" + "<div class=\"progress-bar " + tortoise.name + "\"><span style=\"width:" + (tortoise.position * 5) +  "%\"></span></div>");
 
 	 if ((hare.position == km) || (tortoise.position == km)) {
 	 		var message;
 	 		if (hare.position == km) {
 	 			message = hare.name;
-	 		} else {
+	 		} else if (tortoise.position == km) {
 	 			message = tortoise.name;
-	 		}
+	 		} else if (rhino.position == km) {
+	 			message = rhino.name;
+	 		} else {
+	 			message = bird.name;
+	 		} 
 
 
 	 	document.write("<p style=\"padding:4px;background:" + message+ "\" id=\"race\">race is over and " + message + " wins!</p>")
